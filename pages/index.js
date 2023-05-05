@@ -3,206 +3,92 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import styles from "@/styles/Home.module.css";
+import Title from "@/components/Title";
 
 export default function Home() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    let tl=gsap.timeline({
+    let tl = gsap.timeline({
       scrollTrigger: {
-        end: "+=500",
+        pin: true,
+        start: "top top",
+        end: "bottom +=300px",
+        scrub: 1,
+        ease: "none",
+        trigger: ".panels",
         markers: true,
-        scrub:1,
-        start: "top center",
-        trigger: ".c",
-      }
-    })
-    gsap.to(".c", {
-      animation:tl,
-      duration: 3,
-      ease:"none",
-      rotation: 360,
-      x: 400,
-    });
-    gsap.to(".a", {
-      scrollTrigger: {
-        end: "+=500",
-        markers: true,
-        scrub:1,
-        start: "top center",
-        trigger: ".a",
+        // endTrigger: ".containerTitle",
+        pinSpacing:false
       },
-      duration: 3,
-      ease:"none",
-      rotation: 360,
-      x: 400,
     });
+    tl.to(".accordion .text", {
+      height: 0,
+      paddingBottom: 0,
+      opacity: 0,
+      stagger: 0.5,
+    });
+    tl.to(
+      ".accordion",
+      {
+        marginBottom: 1,
+
+        stagger: 0.5,
+      },
+      "<"
+    );
   }, []);
   return (
     <div className="container">
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <div className="a">a</div>
-      <div className="b">b</div>
-      <div className="c">c</div>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
-      <p>
-        Dolore eiusmod nisi ipsum mollit elit pariatur pariatur laborum laboris
-        tempor eiusmod consequat voluptate. Laborum anim cillum do laborum.
-        Consequat aute labore proident eu Lorem elit aliqua amet voluptate eu
-        nulla pariatur incididunt minim. Eiusmod labore nostrud ad elit elit
-        culpa ad excepteur tempor proident aliquip est eu cillum. Eu ad ut
-        eiusmod ut laborum esse est esse.
-      </p>
+      <Title />
+      <div className="panels">
+        <div className="accordion a">
+          <div className="title">Pretty everywhere.</div>
+          <p className="text">
+            Laborum ea occaecat anim velit ullamco laboris labore. Esse anim
+            anim ut mollit ea consectetur sint ipsum labore officia nostrud enim
+            tempor consequat. Eiusmod cillum in culpa esse nostrud excepteur
+            mollit ea excepteur sunt dolor occaecat quis.
+          </p>
+          <p className="text">
+            Laborum ea occaecat anim velit ullamco laboris labore. Esse anim
+            anim ut mollit ea consectetur sint ipsum labore officia nostrud enim
+            tempor consequat. Eiusmod cillum in culpa esse nostrud excepteur
+            mollit ea excepteur sunt dolor occaecat quis.
+          </p>
+        </div>
+        <div className="accordion b">
+            <div className="title">Pretty everywhere.</div>
+          <p className="text">
+            Laborum ea occaecat anim velit ullamco laboris labore. Esse anim
+            anim ut mollit ea consectetur sint ipsum labore officia nostrud enim
+            tempor consequat. Eiusmod cillum in culpa esse nostrud excepteur
+            mollit ea excepteur sunt dolor occaecat quis.
+          </p>
+          <p className="text">
+            Laborum ea occaecat anim velit ullamco laboris labore. Esse anim
+            anim ut mollit ea consectetur sint ipsum labore officia nostrud enim
+            tempor consequat. Eiusmod cillum in culpa esse nostrud excepteur
+            mollit ea excepteur sunt dolor occaecat quis.
+          </p>
+        </div>
+        <div className="accordion c">
+          <div className="title">Pretty everywhere.</div>
+          <p className="text">
+            Laborum ea occaecat anim velit ullamco laboris labore. Esse anim
+            anim ut mollit ea consectetur sint ipsum labore officia nostrud enim
+            tempor consequat. Eiusmod cillum in culpa esse nostrud excepteur
+            mollit ea excepteur sunt dolor occaecat quis.
+          </p>
+          <p className="text">
+            Laborum ea occaecat anim velit ullamco laboris labore. Esse anim
+            anim ut mollit ea consectetur sint ipsum labore officia nostrud enim
+            tempor consequat. Eiusmod cillum in culpa esse nostrud excepteur
+            mollit ea excepteur sunt dolor occaecat quis.
+          </p>
+        </div>
+      </div>
+      <Title />
     </div>
   );
 }
